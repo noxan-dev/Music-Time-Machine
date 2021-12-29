@@ -49,7 +49,7 @@ artist_names = [artist.getText().strip('\n') for artist in artist_names_span]
 year = user_year.split('-')[0]
 
 
-playlist_name = f'{user_year} billboard Top 100'
+playlist_name = f'{user_year} Billboard Top 100'
 user_playlist = sp.user_playlists(user_id)
 playlist_exists = False
 
