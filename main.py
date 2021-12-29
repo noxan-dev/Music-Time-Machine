@@ -19,8 +19,21 @@ sp = spotipy.Spotify(
     )
 )
 user_id = sp.current_user()['id']
+user_year = ''
 
-user_year = input('What year would you like to travel to (YYYY-MM-DD)? ')
+correct_date = False
+while not correct_date:
+    user_year = input('What year would you like to travel to (YYYY-MM-DD)? ')
+    year_split = user_year.split('-')
+    user_year = user_year
+    if len(user_year) > 10 or len(user_year) < 10:
+        print('Please type a correct date')
+    elif year_split[1] > '12' or year_split[2] > '31':
+        print('Please type a correct date')
+    elif len(year_split[0]) < 4 or len(year_split[1]) < 2 or len(year_split[2]) < 2:
+        print('Please type a date format')
+    else:
+        correct_date = True
 
 ENTRY_URL = 'https://www.billboard.com/charts/hot-100/'
 response = requests.get(ENTRY_URL + user_year)
